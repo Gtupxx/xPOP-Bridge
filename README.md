@@ -1,4 +1,4 @@
-# XshellPlugin
+# xPOP-Bridge
 
 一个用于将 Xshell 撰写编辑区中逐行命令发送到终端的轻量 Python 插件。
 
