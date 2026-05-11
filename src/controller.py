@@ -18,7 +18,9 @@ class Controller:
             text = self.editor.get_text()
             cursor = self.editor.get_cursor()
 
-            line_index, line_text, start, end = LineManager.get_current_line(text, cursor)
+            line_index, line_text, start, end = LineManager.get_current_line(
+                text, cursor
+            )
             cmd = line_text.strip()
 
             log.info(f"当前行: {line_index + 1} | {repr(cmd)}")

@@ -11,11 +11,7 @@ def main():
 
     # 使用配置中的快捷键
     # keyboard.add_hotkey(config.HOTKEY, controller.send_current_line)
-    keyboard.add_hotkey(
-        config.HOTKEY,
-        controller.send_current_line,
-        suppress=True
-    )
+    keyboard.add_hotkey(config.HOTKEY, controller.send_current_line, suppress=True)
 
     log.info("启动成功!")
 

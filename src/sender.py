@@ -52,27 +52,17 @@ class Sender:
 
                         text = win32gui.GetWindowText(child)
 
-                        log.info(
-                            f"找到NsComboBox: "
-                            f"{child} | {text}"
-                        )
+                        log.info(f"找到NsComboBox: " f"{child} | {text}")
 
                         result.append(child)
 
                     return True
 
-                win32gui.EnumChildWindows(
-                    hwnd,
-                    enum_child,
-                    None
-                )
+                win32gui.EnumChildWindows(hwnd, enum_child, None)
 
             return True
 
-        win32gui.EnumWindows(
-            enum_windows,
-            None
-        )
+        win32gui.EnumWindows(enum_windows, None)
 
         if not result:
 
@@ -83,9 +73,7 @@ class Sender:
         # 缓存句柄
         Sender.hwnd = result[-1]
 
-        log.info(
-            f"使用NsComboBox: {Sender.hwnd}"
-        )
+        log.info(f"使用NsComboBox: {Sender.hwnd}")
 
         return Sender.hwnd
 
@@ -101,19 +89,9 @@ class Sender:
         log.info(f"发送命令: {cmd}")
 
         # 写入文本
-        win32gui.SendMessage(
-            hwnd,
-            WM_SETTEXT,
-            0,
-            cmd
-        )
+        win32gui.SendMessage(hwnd, WM_SETTEXT, 0, cmd)
 
         time.sleep(config.SEND_DELAY)
 
         # 回车
-        win32api.PostMessage(
-            hwnd,
-            win32con.WM_KEYDOWN,
-            VK_RETURN,
-            0
-        )
+        win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, VK_RETURN, 0)
