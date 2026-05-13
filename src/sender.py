@@ -54,7 +54,9 @@ class Sender:
 
                         log.info(f"找到NsComboBox: " f"{child} | {text}")
 
-                        result.append(child)
+                        if text == '':
+                            # 撰写栏的text为空，链接栏text不为空
+                            result.append(child)
 
                     return True
 
